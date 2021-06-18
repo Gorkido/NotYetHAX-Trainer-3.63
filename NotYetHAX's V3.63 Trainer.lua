@@ -1,4 +1,4 @@
--------------------------------------------------------------
+------------------------------------------------------------
 --Bools / Locals
 local xx = CETrainer
 local cc = getMainForm()
@@ -3847,7 +3847,7 @@ end
 end)
 
 function Login_LoginBtnMouseDown(sender, button, x, y)
-local str = getint.getURL("YourRaw") --like https://textuploader.com/tsbh0/raw
+local str = getint.getURL("https://textuploader.com/tsbh0/raw") --password = OpenSource
 local TextLogin = Login.Key.text
 if str == TextLogin then
 getint.destroy()
@@ -3967,5 +3967,5 @@ Login.Green5.BevelColor = "0x"..b1..g1..r1
 Login.Green6.BevelColor = "0x"..b1..g1..r1
 Login.FormDrag.BevelColor = "0x"..b1..g1..r1
 end
--------------------------------------------------------------
+------------------------------------------------------------
 --Login
