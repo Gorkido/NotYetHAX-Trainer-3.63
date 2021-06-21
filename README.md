@@ -14,3 +14,6 @@ Because some people didn't know how to install cheat engine and start the traine
 # Why didn't i make the trainer an open source project before? #
 
 Because making an Growtopia trainer, and finding cheats was my life (kinda) so i thought my cheats were so epic and overpowered. (until now xd)
+
+# Trainer's Preview # 
+![Uploading Trainer-Preview.gif…]()
