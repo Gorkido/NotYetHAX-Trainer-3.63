@@ -3853,6 +3853,7 @@ if str == TextLogin then
 getint.destroy()
 Login.Visible = false
 if messageDialog("NotYetHAX", "Password Is Correct!", mbOK) == mrOK then
+playSound(findTableFile("FormOpening.wav"))
 xx.AlphaBlend = true
 xx.AlphaBlendValue = 0
 xx.show()
@@ -3873,6 +3874,7 @@ end
 end
 
 function Login_ExitMouseDown(sender, button, x, y)
+playSound(findTableFile("FormClosing.wav"))
 Login.AlphaBlend = true
 for i=0,85 do
 sleep(1)
