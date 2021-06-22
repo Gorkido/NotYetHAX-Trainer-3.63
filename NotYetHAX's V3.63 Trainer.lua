@@ -304,6 +304,7 @@ db 90 90 90 90 90 90 90 //mod zoom
 
 ------------------------------------------------------------
 --Starting
+xx.Position = poDesktop
 Login.Rainbow.Enabled = true
 --cc.Visible = false --Hides cheat engine
 xx.Visible = false
