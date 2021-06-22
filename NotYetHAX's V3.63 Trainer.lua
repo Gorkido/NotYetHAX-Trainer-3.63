@@ -304,7 +304,7 @@ db 90 90 90 90 90 90 90 //mod zoom
 
 ------------------------------------------------------------
 --Starting
-xx.Position = poDesktop
+xx.Position = poDesktopCenterCenter
 Login.Rainbow.Enabled = true
 --cc.Visible = false --Hides cheat engine
 xx.Visible = false
@@ -3367,6 +3367,8 @@ end
 --Confirmation Form
 local conf = Confirmation
 
+conf.Position = poDesktopCenter
+
 function Confirmation_ExitMouseDown(sender, button, x, y)
 conf.AlphaBlend = true
 for i=0,85 do
@@ -3837,6 +3839,7 @@ end
 
 ------------------------------------------------------------
 --Login
+Login.Position = poDesktopCenter
 Login.AlphaBlend = true
 Login.AlphaBlendValue = 0
 Login.show()
