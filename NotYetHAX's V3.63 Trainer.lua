@@ -8,6 +8,7 @@ local r1,g1,b1
 local cmode = 0
 local colorspace = 5
 local getint = getInternet()
+local asm = autoAssemble
 r = 255
 g = 0
 b = 0
@@ -89,7 +90,7 @@ function F1()
     xx.CELabel138.Font.Color = 0x00FF00
     xx.ItemTP.showhint = true
     xx.ItemTP.color = '0x00FF00'
-autoAssemble[[
+asm[[
 alloc(N,2048,Growtopia.exe+47FED2)
 alloc(Y,100)
 label(H)
@@ -123,12 +124,12 @@ nop
     xx.CELabel138.Font.Color = 0x0000FF
     xx.ItemTP.showhint = false
     xx.ItemTP.color = '$000000'
-autoAssemble[[
+asm[[
 dealloc(*)
 Growtopia.exe+47FED2:
 movss xmm1,[r12+04] ]]
 sleep(1000)
-autoAssemble[[
+asm[[
 Growtopia.exe+40CD3E: //Anti Lgrid / Spike
 db 0F 85 67 05 00 00
 ]]
@@ -143,7 +144,7 @@ function F2()
     xx.GiveawayModeV1.showhint = true
     xx.GiveawayModeV1.color = '0x00FF00'
     xx.HoldS.Enabled = true
-    autoAssemble([[
+    asm([[
 Growtopia.exe+46E087:
 db 90 90
 Growtopia.exe+45E727:
@@ -157,7 +158,7 @@ db 73 05
     xx.GiveawayModeV1.showhint = false
     xx.GiveawayModeV1.color = '$000000'
     xx.HoldS.Enabled = false
-    autoAssemble([[
+    asm([[
 Growtopia.exe+46E087:
 db 74 5D
 Growtopia.exe+45E727:
@@ -175,7 +176,7 @@ function F3()
     xx.ModFlyV2.showhint = true
     xx.ModFlyV2.color = '0x00FF00'
     xx.HoldS.Enabled = true
-    autoAssemble([[
+    asm([[
 Growtopia.exe+46E087:
 db 90 90
     ]])
@@ -185,7 +186,7 @@ db 90 90
     xx.ModFlyV2.showhint = false
     xx.ModFlyV2.color = '$000000'
     xx.HoldS.Enabled = false
-    autoAssemble([[
+    asm([[
 Growtopia.exe+46E087:
 db 74 5D
     ]])
@@ -198,7 +199,7 @@ function F4()
     xx.CELabel141.Font.Color = 0x00FF00
     xx.AntiBounceV1.showhint = true
     xx.AntiBounceV1.color = '0x00FF00'
-    autoAssemble([[
+    asm([[
 Growtopia.exe+4069BA:
 db 75 1D
 Growtopia.exe+4069D5:
@@ -212,7 +213,7 @@ db 90 90 90 90
     xx.CELabel141.Font.Color = 0x0000FF
     xx.AntiBounceV1.showhint = false
     xx.AntiBounceV1.color = '$000000'
-    autoAssemble([[
+    asm([[
 Growtopia.exe+4069BA:
 db 74 1D
 Growtopia.exe+4069D5:
@@ -230,7 +231,7 @@ function F5()
     xx.CELabel142.Font.Color = 0x00FF00
     xx.Growz.showhint = true
     xx.Growz.color = '0x00FF00'
-    autoAssemble([[
+    asm([[
 Growtopia.exe+40FB31:
 db 90 90 90 90
     ]])
@@ -239,7 +240,7 @@ db 90 90 90 90
     xx.CELabel142.Font.Color = 0x0000FF
     xx.Growz.showhint = false
     xx.Growz.color = '$000000'
-    autoAssemble([[
+    asm([[
 Growtopia.exe+40FB31:
 db F3 0F 5C D1
     ]])
@@ -270,7 +271,7 @@ getLuaEngine().hide()
 		  timer.destroy() ---- Destroy timer
 		  openProcess(PROCESS_NAME) ---- Open the proces
   --Ban Bypass
-  autoAssemble[[
+  asm[[
 Growtopia.exe+317553:
 db 90 90
 Growtopia.exe+402173:
@@ -322,12 +323,12 @@ xx.AppCheck.Enabled = true
 ------------------------------------------------------------
 function CETrainer_HoldSTimer(sender)
 if isKeyPressed(VK_S) then
-autoAssemble[[
+asm[[
 Growtopia.exe+46E087:
 db 74 5D
 ]]
 else
-autoAssemble[[
+asm[[
 Growtopia.exe+46E087:
 db 90 90
 ]]
@@ -356,28 +357,24 @@ xx.DragNow()
 end
 
 function CETrainer_ExitMouseEnter(sender)
-  local sender
   sender = xx
   sender = sender.Exit
   sender.Color = "0x0000FF"
 end
 
 function CETrainer_ExitMouseLeave(sender)
-  local sender
   sender = xx
   sender = sender.Exit
   sender.Color = "$0000000"
 end
 
 function CETrainer_MinimizeMouseEnter(sender)
-  local sender
   sender = xx
   sender = sender.Minimize
   sender.Color = "$14141414"
 end
 
 function CETrainer_MinimizeMouseLeave(sender)
-  local sender
   sender = xx
   sender = sender.Minimize
   sender.Color = "$0000000"
@@ -446,140 +443,120 @@ end
 ------------------------------------------------------------
 --Pages1
 function CETrainer_SettingsButtonMouseEnter(sender)
-  local sender
   sender = xx
   sender = sender.SettingsButton
   sender.Color = "$141414"
 end
 
 function CETrainer_SettingsButtonMouseLeave(sender)
-  local sender
   sender = xx
   sender = sender.SettingsButton
   sender.Color = "$0000000"
 end
 
 function CETrainer_SpammerButtonMouseLeave(sender)
-  local sender
   sender = xx
   sender = sender.SpammerButton
   sender.Color = "$0000000"
 end
 
 function CETrainer_SpammerButtonMouseEnter(sender)
-  local sender
   sender = xx
   sender = sender.SpammerButton
   sender.Color = "$141414"
 end
 
 function CETrainer_ChangersButtonMouseEnter(sender)
-  local sender
   sender = xx
   sender = sender.ChangersButton
   sender.Color = "$141414"
 end
 
 function CETrainer_ChangersButtonMouseLeave(sender)
-  local sender
   sender = xx
   sender = sender.ChangersButton
   sender.Color = "$0000000"
 end
 
 function CETrainer_VisualsButtonMouseEnter(sender)
-  local sender
   sender = xx
   sender = sender.VisualsButton
   sender.Color = "$141414"
 end
 
 function CETrainer_VisualsButtonMouseLeave(sender)
-  local sender
   sender = xx
   sender = sender.VisualsButton
   sender.Color = "$0000000"
 end
 
 function CETrainer_CheatsButtonMouseEnter(sender)
-  local sender
   sender = xx
   sender = sender.CheatsButton
   sender.Color = "$141414"
 end
 
 function CETrainer_CheatsButtonMouseLeave(sender)
-  local sender
   sender = xx
   sender = sender.CheatsButton
   sender.Color = "$0000000"
 end
 
 function CETrainer_AboutButtonMouseEnter(sender)
-  local sender
   sender = xx
   sender = sender.AboutButton
   sender.Color = "$141414"
 end
 
 function CETrainer_AboutButtonMouseLeave(sender)
-  local sender
   sender = xx
   sender = sender.AboutButton
   sender.Color = "$0000000"
 end
 
 function CETrainer_Page1ButtonMouseEnter(sender)
-  local sender
   sender = xx
   sender = sender.Page1Button
   sender.Color = "$141414"
 end
 
 function CETrainer_Page1ButtonMouseLeave(sender)
-  local sender
   sender = xx
   sender = sender.Page1Button
   sender.Color = "$0000000"
 end
 
 function CETrainer_Page2ButtonMouseEnter(sender)
-  local sender
   sender = xx
   sender = sender.Page2Button
   sender.Color = "$141414"
 end
 
 function CETrainer_Page2ButtonMouseLeave(sender)
-  local sender
   sender = xx
   sender = sender.Page2Button
   sender.Color = "$0000000"
 end
 
 function CETrainer_Page3ButtonMouseEnter(sender)
-  local sender
   sender = xx
   sender = sender.Page3Button
   sender.Color = "$141414"
 end
 
 function CETrainer_Page3ButtonMouseLeave(sender)
-  local sender
   sender = xx
   sender = sender.Page3Button
   sender.Color = "$0000000"
 end
 
 function CETrainer_Page4ButtonMouseEnter(sender)
-  local sender
   sender = xx
   sender = sender.Page4Button
   sender.Color = "$141414"
 end
 
 function CETrainer_Page4ButtonMouseLeave(sender)
-  local sender
   sender = xx
   sender = sender.Page4Button
   sender.Color = "$0000000"
@@ -944,14 +921,12 @@ showMessage'Successfully Reseted!'
 end
 
 function CETrainer_ResetMouseEnter(sender)
-  local sender
   sender = xx
   sender = sender.Reset
   sender.Color = "$141414"
 end
 
 function CETrainer_ResetMouseLeave(sender)
-  local sender
   sender = xx
   sender = sender.Reset
   sender.Color = "$000000"
@@ -997,14 +972,12 @@ showMessage'Successfully Reseted!'
 end
 
 function CETrainer_Reset2MouseEnter(sender)
-  local sender
   sender = xx
   sender = sender.Reset2
   sender.Color = "$141414"
 end
 
 function CETrainer_Reset2MouseLeave(sender)
-  local sender
   sender = xx
   sender = sender.Reset2
   sender.Color = "$000000"
@@ -1076,56 +1049,48 @@ ChangeHostFile:write(ChngHost)
 end
 
 function CETrainer_CEPanel2MouseEnter(sender)
-  local sender
   sender = xx
   sender = sender.CEPanel2
   sender.Color = "$141414"
 end
 
 function CETrainer_CEPanel2MouseLeave(sender)
-  local sender
   sender = xx
   sender = sender.CEPanel2
   sender.Color = "$000000"
 end
 
 function CETrainer_CEPanel3MouseEnter(sender)
-  local sender
   sender = xx
   sender = sender.CEPanel3
   sender.Color = "$141414"
 end
 
 function CETrainer_CEPanel3MouseLeave(sender)
-  local sender
   sender = xx
   sender = sender.CEPanel3
   sender.Color = "$000000"
 end
 
 function CETrainer_PosYButtonMouseEnter(sender)
-  local sender
   sender = xx
   sender = sender.PosYButton
   sender.Color = "$141414"
 end
 
 function CETrainer_PosYButtonMouseLeave(sender)
-  local sender
   sender = xx
   sender = sender.PosYButton
   sender.Color = "$000000"
 end
 
 function CETrainer_PosXButtonMouseEnter(sender)
-  local sender
   sender = xx
   sender = sender.PosXButton
   sender.Color = "$141414"
 end
 
 function CETrainer_PosXButtonMouseLeave(sender)
-  local sender
   sender = xx
   sender = sender.PosXButton
   sender.Color = "$000000"
@@ -1208,14 +1173,12 @@ shellExecute(NY)
 end
 
 function CETrainer_UnbannerMouseEnter(sender)
-  local sender
   sender = xx
   sender = sender.Unbanner
   sender.Color = "$141414"
 end
 
 function CETrainer_UnbannerMouseLeave(sender)
-  local sender
   sender = xx
   sender = sender.Unbanner
   sender.Color = "$000000"
@@ -1232,14 +1195,12 @@ os.remove(A)
 end
 
 function CETrainer_DelSaveDatMouseEnter(sender)
-  local sender
   sender = xx
   sender = sender.DelSaveDat
   sender.Color = "$14141414"
 end
 
 function CETrainer_DelSaveDatMouseLeave(sender)
-  local sender
   sender = xx
   sender = sender.DelSaveDat
   sender.Color = "$000000"
@@ -1252,14 +1213,12 @@ shellExecute(NY)
 end
 
 function CETrainer_StartGrowtopiaMouseEnter(sender)
-  local sender
   sender = xx
   sender = sender.StartGrowtopia
   sender.Color = "$141414"
 end
 
 function CETrainer_StartGrowtopiaMouseLeave(sender)
-  local sender
   sender = xx
   sender = sender.StartGrowtopia
   sender.Color = "$000000"
@@ -1270,14 +1229,12 @@ shellExecute('cmd.exe', '/c taskkill /PID ' .. getOpenedProcessID(), nil, false)
 end
 
 function CETrainer_CloseGrowtopiaMouseEnter(sender)
-  local sender
   sender = xx
   sender = sender.CloseGrowtopia
   sender.Color = "$141414"
 end
 
 function CETrainer_CloseGrowtopiaMouseLeave(sender)
-  local sender
   sender = xx
   sender = sender.CloseGrowtopia
   sender.Color = "$000000"
@@ -1319,28 +1276,24 @@ end
 end
 
 function CETrainer_StartSpammerMouseEnter(sender)
-  local sender
   sender = xx
   sender = sender.StartSpammer
   sender.Color = "$141414"
 end
 
 function CETrainer_StartSpammerMouseLeave(sender)
-  local sender
   sender = xx
   sender = sender.StartSpammer
   sender.Color = "$0000000"
 end
 
 function CETrainer_StopSpammerMouseEnter(sender)
-  local sender
   sender = xx
   sender = sender.StopSpammer
   sender.Color = "$141414"
 end
 
 function CETrainer_StopSpammerMouseLeave(sender)
-  local sender
   sender = xx
   sender = sender.StopSpammer
   sender.Color = "$0000000"
@@ -1438,7 +1391,7 @@ function CETrainer_ItemTPMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 alloc(N,2048,Growtopia.exe+47FED2)
 alloc(Y,100)
 label(H)
@@ -1473,12 +1426,12 @@ nop]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 dealloc(*)
 Growtopia.exe+47FED2:
 movss xmm1,[r12+04] ]]
 sleep(1000)
-autoAssemble[[
+asm[[
 Growtopia.exe+40CD3E: //Anti Lgrid / Spike
 db 0F 85 67 05 00 00
 Growtopia.exe+469F72:
@@ -1494,7 +1447,7 @@ if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
 xx.HoldS.Enabled = true
-autoAssemble[[
+asm[[
 Growtopia.exe+46E087:
 db 90 90
 Growtopia.exe+45E727:
@@ -1510,7 +1463,7 @@ else
 sender.color = '$000000'
 sender.showhint = false
 xx.HoldS.Enabled = false
-autoAssemble[[
+asm[[
 Growtopia.exe+46E087:
 db 74 5D
 Growtopia.exe+45E727:
@@ -1530,7 +1483,7 @@ if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
 xx.HoldS.Enabled = true
-autoAssemble[[
+asm[[
 Growtopia.exe+4069BA:
 db 75 1D
 Growtopia.exe+4069D5:
@@ -1562,7 +1515,7 @@ else
 sender.color = '$000000'
 sender.showhint = false
 xx.HoldS.Enabled = false
-autoAssemble[[
+asm[[
 Growtopia.exe+4069BA:
 db 74 1D
 Growtopia.exe+4069D5:
@@ -1597,14 +1550,14 @@ function CETrainer_ModFlyV1MouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+46E087:
 db 90 90
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+46E087:
 db 74 5D
 ]]
@@ -1616,7 +1569,7 @@ if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
 xx.HoldS.Enabled = true
-autoAssemble[[
+asm[[
 Growtopia.exe+46E087:
 db 90 90
 ]]
@@ -1624,7 +1577,7 @@ else
 sender.color = '$000000'
 sender.showhint = false
 xx.HoldS.Enabled = false
-autoAssemble[[
+asm[[
 Growtopia.exe+46E087:
 db 74 5D
 ]]
@@ -1636,7 +1589,7 @@ if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
 xx.HoldS.Enabled = true
-autoAssemble[[
+asm[[
 Growtopia.exe+46E087:
 db 90 90
 Growtopia.exe+121925: //dancemove client
@@ -1652,7 +1605,7 @@ else
 sender.color = '$000000'
 sender.showhint = false
 xx.HoldS.Enabled = false
-autoAssemble[[
+asm[[
 Growtopia.exe+46E087:
 db 74 5D
 Growtopia.exe+121925: //dancemove client
@@ -1671,7 +1624,7 @@ function CETrainer_AntiBounceV1MouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+4069BA:
 db 75 1D
 Growtopia.exe+4069D5:
@@ -1683,7 +1636,7 @@ db 90 90 90 90
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+4069BA:
 db 74 1D
 Growtopia.exe+4069D5:
@@ -1699,7 +1652,7 @@ function CETrainer_AntiBounceV3MouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+4069BA:
 db 75 1D
 Growtopia.exe+4069D5:
@@ -1719,7 +1672,7 @@ db 90 90
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+4069BA:
 db 74 1D
 Growtopia.exe+4069D5:
@@ -1743,14 +1696,14 @@ function CETrainer_AntiSlideMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+410B62:
 db 90 90
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+410B62:
 db 75 03
 ]]
@@ -1761,14 +1714,14 @@ function CETrainer_SlideModeMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+410B54:
 db 74 0E
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+410B54:
 db 75 0E
 ]]
@@ -1779,14 +1732,14 @@ function CETrainer_GrowzMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+40FB31:
 db 90 90 90 90
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+40FB31:
 db F3 0F 5C D1
 ]]
@@ -1797,14 +1750,14 @@ function CETrainer_GhostV3MouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+40F2A2:
 db 73 05
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+40F2A2:
 db 74 05
 ]]
@@ -1815,14 +1768,14 @@ function CETrainer_NoClipMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+45E727:
 db 90 90
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+45E727:
 db 75 0C
 ]]
@@ -1833,7 +1786,7 @@ function CETrainer_FastFallV1MouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+41CFD6:
 db 75 0F
 
@@ -1841,7 +1794,7 @@ db 75 0F
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+41CFD6:
 db 74 0F
 ]]
@@ -1852,14 +1805,14 @@ function CETrainer_FastFallV2MouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+41B3E8:
 db 90 90
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+41B3E8:
 db 74 08
 ]]
@@ -1870,14 +1823,14 @@ function CETrainer_FastFallV3MouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+41AB99:
 db 0F 83 88 00 00 00
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+41AB99:
 db 0F 84 88 00 00 00
 ]]
@@ -1888,14 +1841,14 @@ function CETrainer_FloatMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+41CFD6:
 db 90 90
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+41CFD6:
 db 74 0F
 ]]
@@ -1906,7 +1859,7 @@ function CETrainer_SystemSpeedMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+9F0A1:
 db 90 90 90 90
 Growtopia.exe+9EE41:
@@ -1917,7 +1870,7 @@ db 90 90 90 90
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+9F0A1:
 db 89 54 24 6C
 Growtopia.exe+9EE41:
@@ -1932,14 +1885,14 @@ function CETrainer_AntiPlatformWaterfallMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+45E738:
 db 90 90
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+45E738:
 db 74 0D
 ]]
@@ -1950,14 +1903,14 @@ function CETrainer_AntiCheckpointMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+45E6FA:
 db 90 90 90 90 90
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+45E6FA:
 db 83 7C 02 04 1B
 ]]
@@ -1968,14 +1921,14 @@ function CETrainer_AntiGravityWellMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+401166:
 db 90 90 90 90 90
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+401166:
 db E8 25 01 00 00
 ]]
@@ -1986,14 +1939,14 @@ function CETrainer_AntiKnockbackV1MouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+41CC18:
 db 90 90 90 90 90
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+41CC18:
 db F3 0F 10 49 0C
 ]]
@@ -2004,7 +1957,7 @@ function CETrainer_AntiKnockbackV2MouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+416FA5:
 db E9 C1 00 00 00
 Growtopia.exe+416FD9:
@@ -2015,7 +1968,7 @@ db
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+416FA5:
 db 0F 85 C0 00 00 00
 Growtopia.exe+416FD9:
@@ -2030,14 +1983,14 @@ function CETrainer_AntiStateMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+318CFC:
 db 0F 85 24 16 00 00
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+318CFC:
 db 0F 84 24 16 00 00
 ]]
@@ -2048,14 +2001,14 @@ function CETrainer_PickupRangeUPMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+41CC26:
 db 90 90 90 90 90
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+41CC26:
 db F3 0F 11 4A 04
 ]]
@@ -2066,14 +2019,14 @@ function CETrainer_AntiPortalMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+411AB9:
 db 90 90
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+411AB9:
 db 75 65
 ]]
@@ -2084,14 +2037,14 @@ function CETrainer_AntiLgridSpikeMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+40CD3E:
 db 0F 84 67 05 00 00
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+40CD3E:
 db 0F 85 67 05 00 00
 ]]
@@ -2102,14 +2055,14 @@ function CETrainer_MoveWhileDeadMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+40BA33:
 db 90 90
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+40BA33:
 db 75 1F
 ]]
@@ -2120,14 +2073,14 @@ function CETrainer_AntiRespawnV1MouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+40BAD0:
 db 0F 85 8C 03 00 00
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+40BAD0:
 db 0F 84 8C 03 00 00
 ]]
@@ -2138,14 +2091,14 @@ function CETrainer_AntiRespawnV2MouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+96108:
 db EB 10
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+96108:
 db 75 10
 ]]
@@ -2156,14 +2109,14 @@ function CETrainer_FrogModeMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+40EE5C:
 db 0F 85 EF 00 00 00
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+40EE5C:
 db 0F 84 EF 00 00 00
 ]]
@@ -2174,14 +2127,14 @@ function CETrainer_TeleportUpDownMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+41C8F1:
 db 90 90 90 90 90
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+41C8F1:
 db F3 44 0F 5C D7
 ]]
@@ -2192,14 +2145,14 @@ function CETrainer_TeleportLeftRightMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+41C750:
 db 90 90 90 90 90
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+41C750:
 db F3 44 0F 5C CF
 ]]
@@ -2210,14 +2163,14 @@ function CETrainer_AntiLavaDamageMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+408FEC:
 db 74 07
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+408FEC:
 db 75 07
 ]]
@@ -2228,14 +2181,14 @@ function CETrainer_AntiCactusDamageMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+40FB4B:
 db 74 0A
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+40FB4B:
 db 75 0A
 ]]
@@ -2246,14 +2199,14 @@ function CETrainer_WaterZMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+40187B:
 db 76 19
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+40187B:
 db 75 19
 ]]
@@ -2264,7 +2217,7 @@ function CETrainer_SpeedyMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+40FB4B:
 db 76 19
 Growtopia.exe+40FB9D:
@@ -2273,7 +2226,7 @@ db 75 26
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+40FB4B:
 db 75 19
 Growtopia.exe+40FB9D:
@@ -2286,14 +2239,14 @@ function CETrainer_SeeInsideChestsMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+47E838:
 db 90 90 90 90 90 90
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+47E838:
 db 0F 82 49 19 00 00
 ]]
@@ -2304,13 +2257,13 @@ function CETrainer_SeeLockedDoorsMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 
 ]]
 end
@@ -2320,14 +2273,14 @@ function CETrainer_SeeGhostsMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+43FE36:
 db 75 0B
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+43FE36:
 db 74 0B
 ]]
@@ -2338,14 +2291,14 @@ function CETrainer_NightVisionMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+44E159:
 db 74 06
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+44E159:
 db 75 06
 ]]
@@ -2356,14 +2309,14 @@ function CETrainer_CemeSpeedMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+45B4C0:
 db 90 90 90 90
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+45B4C0:
 db 0F B7 47 04
 ]]
@@ -2402,14 +2355,14 @@ function CETrainer_ExtendedPunchMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+305816:
 db 83 C0 05
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+305816:
 db 83 C0 02
 ]]
@@ -2420,14 +2373,14 @@ function CETrainer_InvisiblePunchV1MouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+40AF89:
 db 75 0F
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+40AF89:
 db 74 0F
 ]]
@@ -2438,7 +2391,7 @@ function CETrainer_InvisiblePunchV2MouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+40377F:
 db 0F 84 97 00 00 00
 Growtopia.exe+408FEC:
@@ -2447,7 +2400,7 @@ db 90 90 90 90 90
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+40377F:
 db 0F 85 97 00 00 00
 Growtopia.exe+408FEC:
@@ -2460,7 +2413,7 @@ function CETrainer_LongPlaceSeedMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+324BF5: //Dev Place
 db EB 68
 Growtopia.exe+31A601: //Long Place Bypass
@@ -2475,7 +2428,7 @@ db EB 11
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+324BF5: //Dev Place
 db 74 68
 Growtopia.exe+31A601: //Long Place Bypass
@@ -2494,7 +2447,7 @@ function CETrainer_RandomSeedsMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+324BF5: //Dev Place
 db EB 68
 Growtopia.exe+31A601: //Long Place Bypass
@@ -2564,7 +2517,7 @@ end)
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+324BF5: //Dev Place
 db 74 68
 Growtopia.exe+31A601: //Long Place Bypass
@@ -2584,7 +2537,7 @@ function CETrainer_RainbowCrystalMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+324BF5: //Dev Place
 db EB 68
 Growtopia.exe+31A601: //Long Place Bypass
@@ -2617,7 +2570,7 @@ end)
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+324BF5: //Dev Place
 db 74 68
 Growtopia.exe+31A601: //Long Place Bypass
@@ -2637,7 +2590,7 @@ function CETrainer_MagicEggSpawnMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+324BF5: //Dev Place
 db EB 68
 Growtopia.exe+31A601: //Long Place Bypass
@@ -2662,7 +2615,7 @@ end)
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+324BF5: //Dev Place
 db 74 68
 Growtopia.exe+31A601: //Long Place Bypass
@@ -2682,7 +2635,7 @@ function CETrainer_SpinBotMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+41C292:
 db 90 90 90
 Growtopia.exe+41C209:
@@ -2705,7 +2658,7 @@ end)
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+41C292:
 db 88 48 61
 Growtopia.exe+41C209:
@@ -2719,14 +2672,14 @@ function CETrainer_DevModeMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+31A651:
 db 90 90
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+31A651:
 db 74 5F
 ]]
@@ -2737,14 +2690,14 @@ function CETrainer_GravityV1MouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+41B226:
 db 0F 85 16 01 00 00
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+41B226:
 db 0F 84 17 01 00 00
 ]]
@@ -2755,7 +2708,7 @@ function CETrainer_GravityV2MouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+41B226:
 db 0F 85 16 01 00 00
 Growtopia.exe+41B200:
@@ -2764,7 +2717,7 @@ db 74 1D
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+41B226:
 db 0F 84 17 01 00 00
 Growtopia.exe+41B200:
@@ -2777,7 +2730,7 @@ function CETrainer_GravityV3MouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+41B226:
 db 0F 85 16 01 00 00
 Growtopia.exe+41B200:
@@ -2788,7 +2741,7 @@ db 74 27
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+41B226:
 db 0F 84 17 01 00 00
 Growtopia.exe+41B200:
@@ -2803,7 +2756,7 @@ function CETrainer_GravityV4MouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+41B1C6:
 db 90 90
 Growtopia.exe+41B358:
@@ -2812,7 +2765,7 @@ db 74 49
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+41B1C6:
 db 75 27
 Growtopia.exe+41B358:
@@ -2825,14 +2778,14 @@ function CETrainer_HigherJumpMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+41B200:
 db 74 1D
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+41B200:
 db 75 1D
 ]]
@@ -2843,14 +2796,14 @@ function CETrainer_FlyMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+4099FD:
 db 90 90
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+4099FD:
 db 75 12
 ]]
@@ -2861,7 +2814,7 @@ function CETrainer_UnlimitedJumpMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+46E087:
 db 75 5D
 Growtopia.exe+41AB99:
@@ -2870,7 +2823,7 @@ db 0F 83 88 00 00 00
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+46E087:
 db 74 5D
 Growtopia.exe+41AB99:
@@ -2883,7 +2836,7 @@ function CETrainer_MoonWalkMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+40FAB0:
 db 75 0D
 Growtopia.exe+40FAAA:
@@ -2892,7 +2845,7 @@ mulss xmm0,xmm7
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+40FAB0:
 db 74 0D
 Growtopia.exe+40FAAA:
@@ -2905,7 +2858,7 @@ function CETrainer_SlowWalkV1MouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+41C289:
 db 75 07
 Growtopia.exe+41C200:
@@ -2914,7 +2867,7 @@ db 74 07
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+41C289:
 db 74 07
 Growtopia.exe+41C200:
@@ -2927,14 +2880,14 @@ function CETrainer_SlowWalkV2MouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+40FB42:
 db 90 90
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+40FB42:
 db 74 22
 ]]
@@ -2945,7 +2898,7 @@ function CETrainer_DanceMoveMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+121925: //dancemove client
 db 90 90 90 90
 Growtopia.exe+12192C: //dancemove server
@@ -2958,7 +2911,7 @@ db 90 90
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+121925: //dancemove client
 db F3 0F 11 11
 Growtopia.exe+12192C: //dancemove server
@@ -2975,14 +2928,14 @@ function CETrainer_TractorMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+411727:
 db 0F 84 B8 00 00 00
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+411727:
 db 0F 85 B8 00 00 00
 ]]
@@ -2993,14 +2946,14 @@ function CETrainer_AutoPlantMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+411266:
 db 0F 84 D5 00 00 00
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+411266:
 db 0F 85 D5 00 00 00
 ]]
@@ -3011,14 +2964,14 @@ function CETrainer_AutoPunchMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+41AB70:
 db 90 90 90 90 90 90
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+41AB70:
 db 44 0F 29 44 24 40
 ]]
@@ -3030,7 +2983,7 @@ if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
 xx.HoldS.Enabled = true
-autoAssemble[[
+asm[[
 Growtopia.exe+46E087:
 db 75 5D
 Growtopia.exe+410CCD:
@@ -3040,7 +2993,7 @@ else
 sender.color = '$000000'
 sender.showhint = false
 xx.HoldS.Enabled = false
-autoAssemble[[
+asm[[
 Growtopia.exe+46E087:
 db 74 5D
 Growtopia.exe+410CCD:
@@ -3053,14 +3006,14 @@ function CETrainer_SlowMotionMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+960A9:
 db 90 90
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+960A9:
 db 72 A7
 ]]
@@ -3085,14 +3038,14 @@ function CETrainer_CannotCollectMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+3092C9:
 db 74 0B
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+3092C9:
 db 75 0B
 ]]
@@ -3103,14 +3056,14 @@ function CETrainer_CannotMoveMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+46B300:
 db 74 50
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+46B300:
 db 75 50
 ]]
@@ -3121,7 +3074,7 @@ function CETrainer_AutoRespawnMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+45E727:
 db 74 0C
 ]]
@@ -3130,7 +3083,7 @@ Res = "[[[Growtopia.exe+7667F8]+AB0]+198]+138"
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+45E727:
 db 75 0C
 ]]
@@ -3150,7 +3103,7 @@ tp10 = createNativeThread(function(Thread)
     sleep(25)
 
 if isKeyPressed(VK_D) then
-autoAssemble[[
+asm[[
 Growtopia.exe+46E087:
 db 90 90]]
 posxptr = "[[[Growtopia.exe+7667F8]+AB0]+198]+08"
@@ -3158,7 +3111,7 @@ writeFloat(posxptr, readFloat(posxptr) + 70)
 end
 sleep(25)
 if isKeyPressed(VK_W) then
-autoAssemble[[
+asm[[
 Growtopia.exe+46E087:
 db 90 90]]
 posxptr = "[[[Growtopia.exe+7667F8]+AB0]+198]+C"
@@ -3166,7 +3119,7 @@ writeFloat(posxptr, readFloat(posxptr) + -70)
 end
 sleep(25)
 if isKeyPressed(VK_A) then
-autoAssemble[[
+asm[[
 Growtopia.exe+46E087:
 db 90 90]]
 posxptr = "[[[Growtopia.exe+7667F8]+AB0]+198]+08"
@@ -3174,7 +3127,7 @@ writeFloat(posxptr, readFloat(posxptr) + -70)
 end
 sleep(25)
 if isKeyPressed(VK_S) then
-autoAssemble[[
+asm[[
 Growtopia.exe+46E087:
 db 90 90]]
 posxptr = "[[[Growtopia.exe+7667F8]+AB0]+198]+C"
@@ -3186,7 +3139,7 @@ else
 sender.color = '$000000'
 sender.showhint = false
 tp10.terminate()
-autoAssemble[[
+asm[[
 Growtopia.exe+46E087:
 db 74 5D
 ]]
@@ -3229,7 +3182,7 @@ function CETrainer_ModSpawnMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+62BB2C: //mod spawn
 db 90 90
 Growtopia.exe+40F2A2:
@@ -3238,7 +3191,7 @@ db 73 05
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+62BB2C: //mod spawn
 db 70 6F
 Growtopia.exe+40F2A2:
@@ -3251,14 +3204,14 @@ function CETrainer_FastPickupMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+469F72:
 db 90 90
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+469F72:
 db 73 19
 ]]
@@ -3269,14 +3222,14 @@ function CETrainer_FastDropMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+469FED:
 db 75 90
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+469FED:
 db 74 90
 ]]
@@ -3287,14 +3240,14 @@ function CETrainer_LowJumpMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+4099FD:
 db 90 90
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+4099FD:
 db 75 12
 ]]
@@ -3311,7 +3264,7 @@ function CETrainer_AutoRespawn1MouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+45E727:
 db 74 0C
 Growtopia.exe+40C638:
@@ -3336,7 +3289,7 @@ Res = "[[[Growtopia.exe+7667F8]+AB0]+198]+138"
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+45E727:
 db 75 0C
 Growtopia.exe+40C638:
@@ -3380,14 +3333,12 @@ conf.Visible = false
 end
 
 function Confirmation_ExitMouseEnter(sender)
-  local sender
   sender = conf
   sender = sender.Exit
   sender.Color = "0x0000FF"
 end
 
 function Confirmation_ExitMouseLeave(sender)
-  local sender
   sender = conf
   sender = sender.Exit
   sender.Color = "$0000000"
@@ -3421,14 +3372,12 @@ CloseCE()
 end
 
 function Confirmation_CEPanel1MouseEnter(sender)
-  local sender
   sender = conf
   sender = sender.CEPanel1
   sender.Color = "$141414"
 end
 
 function Confirmation_CEPanel1MouseLeave(sender)
-  local sender
   sender = conf
   sender = sender.CEPanel1
   sender.Color = "$000000"
@@ -3445,14 +3394,12 @@ conf.CETimer1.Enabled = false
 end
 
 function Confirmation_CEPanel3MouseEnter(sender)
-  local sender
   sender = conf
   sender = sender.CEPanel3
   sender.Color = "$141414"
 end
 
 function Confirmation_CEPanel3MouseLeave(sender)
-  local sender
   sender = conf
   sender = sender.CEPanel3
   sender.Color = "$0000000"
@@ -3529,14 +3476,14 @@ function CETrainer_TimeMachineMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+45FB2A:
 db 90 90
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+45FB2A:
 db 74 0A
 ]]
@@ -3547,14 +3494,14 @@ function CETrainer_SteamPipeInventoryMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+3FABD7:
 db 0F 84 9F 00 00 00
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+3FABD7:
 db 0F 85 9F 00 00 00
 ]]
@@ -3565,14 +3512,14 @@ function CETrainer_RainbowBlocksMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+478776:
 db 90 90 90 90 90 90
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+478776:
 db 0F 85 88 00 00 00
 ]]
@@ -3583,14 +3530,14 @@ function CETrainer_RainbowInventoryMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+3FA78B:
 db 0F 84 BB 00 00 00
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+3FA78B:
 db 0F 85 BB 00 00 00
 ]]
@@ -3601,7 +3548,7 @@ function CETrainer_RainbowInventoryFastMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+3FA78B:
 db 0F 84 BB 00 00 00
 Growtopia.exe+3FA7B0:
@@ -3612,7 +3559,7 @@ db 90 90 90 90 90 90 90 90
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+3FA78B:
 db 0F 85 BB 00 00 00
 Growtopia.exe+3FA7B0:
@@ -3627,14 +3574,14 @@ function CETrainer_TrippyBlocksMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+4866AF:
 db 90 90 90 90 90 90
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+4866AF:
 db 0F 85 44 01 00 00
 ]]
@@ -3645,14 +3592,14 @@ function CETrainer_WaterVisualMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+414B5C:
 db 75 1E
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+414B5C:
 db 74 1E
 ]]
@@ -3663,13 +3610,13 @@ function CETrainer_NoItemBorderMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 
 ]]
 end
@@ -3679,13 +3626,13 @@ function CETrainer_DragonKnightSetMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 
 ]]
 end
@@ -3695,14 +3642,14 @@ function CETrainer_LegendaryNameMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+4040EF:
 db 75 13
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+4040EF:
 db 74 13
 ]]
@@ -3713,14 +3660,14 @@ function CETrainer_NoNameMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+4043E0:
 db 90 90
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+4043E0:
 db 76 21
 ]]
@@ -3731,14 +3678,14 @@ function CETrainer_SeeFruitsMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+45BF3A:
 db 74 08
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+45BF3A:
 db 75 08
 ]]
@@ -3749,14 +3696,14 @@ function CETrainer_InvisibleBlocksMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+45C38C:
 db 90 90 90 90
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+45C38C:
 db 0F B7 43 04
 ]]
@@ -3767,14 +3714,14 @@ function CETrainer_CCTVMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+31735B:
 db 74 72
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+31735B:
 db 75 72
 ]]
@@ -3785,14 +3732,14 @@ function CETrainer_LegendBotMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+1D7466:
 db 90 90
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+1D7466:
 db 75 25
 ]]
@@ -3803,14 +3750,14 @@ function CETrainer_LightModeMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 "Growtopia.exe"+3F5D23:
 db 85 13
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 "Growtopia.exe"+3F5D23:
 db 84 13
 ]]
@@ -3821,14 +3768,14 @@ function CETrainer_CloningBodyMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
 sender.color = '0x00FF00'
-autoAssemble[[
+asm[[
 Growtopia.exe+414BEA:
 db 84 FF
 ]]
 else
 sender.color = '$000000'
 sender.showhint = false
-autoAssemble[[
+asm[[
 Growtopia.exe+414BEA:
 db 85 FF
 ]]
@@ -3896,14 +3843,12 @@ Login.DragNow()
 end
 
 function Login_ExitMouseEnter(sender)
-  local sender
   sender = Login
   sender = sender.Exit
   sender.Color = "0x0000FF"
 end
 
 function Login_ExitMouseLeave(sender)
-  local sender
   sender = Login
   sender = sender.Exit
   sender.Color = "$0000000"
