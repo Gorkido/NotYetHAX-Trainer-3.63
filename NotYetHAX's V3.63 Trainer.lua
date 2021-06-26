@@ -1,5 +1,5 @@
--------------------------------------------------------------
---Bools / Locals
+------------------------------------------------------------
+-- Bools / Locals
 local xx = CETrainer
 local cc = getMainForm()
 local memrec = getAddressList().getMemoryRecordByDescription
@@ -248,10 +248,10 @@ db F3 0F 5C D1
 end
 getLuaEngine().cbShowOnPrint.Checked = false
 getLuaEngine().hide()
---Bools / Locals
+-- Bools / Locals
 ------------------------------------------------------------
 
---Auto Attach And Ban Bypasses
+-- Auto Attach And Ban Bypasses
   ------------------------------------------------------------
   PROCESS_NAME = 'Growtopia.exe'
 
@@ -270,7 +270,7 @@ getLuaEngine().hide()
 	  if getProcessIDFromProcessName(PROCESS_NAME) ~= nil then
 		  timer.destroy() ---- Destroy timer
 		  openProcess(PROCESS_NAME) ---- Open the proces
-  --Ban Bypass
+  -- Ban Bypass
   asm[[
 Growtopia.exe+317553:
 db 90 90
@@ -283,8 +283,12 @@ db 90 90 90 90 90 90
 Growtopia.exe+308FEF:
 db 90 90 90 90 90 90 90 //mod zoom
 ]]
+  -- Ban Bypass
 
-  --Ban Bypass
+  -- Version Bypass
+  memrec( 'Version' ).Active = true
+  memrec( 'Version' ).Value = "5"
+  -- Version Bypass
   xx.Process.Font.Color = "0x00FF00"
   xx.Process.Caption = "     GROWTOPIA: RUNNING"
   memrec( 'WatermarkString' ).Active = true
@@ -300,14 +304,14 @@ db 90 90 90 90 90 90 90 //mod zoom
   autoAttachTimer = createTimer(getMainForm())
   autoAttachTimer.Interval = autoAttachTimerInterval
   autoAttachTimer.OnTimer = autoAttachTimer_tick
---Auto Attach And Ban Bypasses
+-- Auto Attach And Ban Bypasses
 ------------------------------------------------------------
 
 ------------------------------------------------------------
---Starting
+-- Starting
 xx.Position = poDesktopCenterCenter
 Login.Rainbow.Enabled = true
---cc.Visible = false --Hides cheat engine
+-- cc.Visible = false --Hides cheat engine
 xx.Visible = false
 xx.Process.Font.Color = "0x0000FF"
 xx.Process.Caption = "GROWTOPIA: NOT RUNNING"
@@ -319,7 +323,7 @@ xx.Page2Button.Visible = false
 xx.Page3Button.Visible = false
 xx.Page4Button.Visible = false
 xx.AppCheck.Enabled = true
---Starting
+-- Starting
 ------------------------------------------------------------
 function CETrainer_HoldSTimer(sender)
 if isKeyPressed(VK_S) then
@@ -335,7 +339,7 @@ db 90 90
 end
 end
 ------------------------------------------------------------
---Design
+-- Design
 function CETrainer_FormDragMouseDown(sender, button, x, y)
 xx.DragNow()
 end
@@ -431,7 +435,7 @@ xx.Credits1.Font.color = "0x"..b1..g1..r1
 xx.Credits2.Font.color = "0x"..b1..g1..r1
 end
 
---Design
+-- Design
 ------------------------------------------------------------
 
 function CETrainer_CETrackBar1Change(sender)
@@ -441,7 +445,7 @@ xx.OpacityView.Caption = (xx.OpacityTrackbar.Position)
 end
 
 ------------------------------------------------------------
---Pages1
+-- Pages1
 function CETrainer_SettingsButtonMouseEnter(sender)
   sender = xx
   sender = sender.SettingsButton
@@ -561,11 +565,11 @@ function CETrainer_Page4ButtonMouseLeave(sender)
   sender = sender.Page4Button
   sender.Color = "$0000000"
 end
---Pages1
+-- Pages1
 ------------------------------------------------------------
 
 ------------------------------------------------------------
---Pages2
+-- Pages2
 function CETrainer_AboutButtonMouseDown(sender, button, x, y)
 --Bevel Width Changing
 xx.AboutButton.BevelWidth = 2
@@ -594,14 +598,14 @@ end
 end
 
 function CETrainer_CheatsButtonMouseDown(sender, button, x, y)
---Bevel Width Changing
+-- Bevel Width Changing
 xx.AboutButton.BevelWidth = 1
 xx.CheatsButton.BevelWidth = 2
 xx.VisualsButton.BevelWidth = 1
 xx.ChangersButton.BevelWidth = 1
 xx.SpammerButton.BevelWidth = 1
 xx.SettingsButton.BevelWidth = 1
---Bevel Width Changing
+-- Bevel Width Changing
 xx.PosYTimer.Enabled = false
 xx.PosXTimer.Enabled = false
 xx.CurrentPlayers.Enabled = false
@@ -620,14 +624,14 @@ end
 end
 
 function CETrainer_VisualsButtonMouseDown(sender, button, x, y)
---Bevel Width Changing0
+-- Bevel Width Changing0
 xx.AboutButton.BevelWidth = 1
 xx.CheatsButton.BevelWidth = 1
 xx.VisualsButton.BevelWidth = 2
 xx.ChangersButton.BevelWidth = 1
 xx.SpammerButton.BevelWidth = 1
 xx.SettingsButton.BevelWidth = 1
---Bevel Width Changing
+-- Bevel Width Changing
 xx.PosYTimer.Enabled = false
 xx.PosXTimer.Enabled = false
 xx.CurrentPlayers.Enabled = false
@@ -647,14 +651,14 @@ end
 end
 
 function CETrainer_ChangersButtonMouseDown(sender, button, x, y)
---Bevel Width Changing0
+-- Bevel Width Changing0
 xx.AboutButton.BevelWidth = 1
 xx.CheatsButton.BevelWidth = 1
 xx.VisualsButton.BevelWidth = 1
 xx.ChangersButton.BevelWidth = 2
 xx.SpammerButton.BevelWidth = 1
 xx.SettingsButton.BevelWidth = 1
---Bevel Width Changing
+-- Bevel Width Changing
 xx.PosYTimer.Enabled = false
 xx.PosXTimer.Enabled = false
 xx.CurrentPlayers.Enabled = false
@@ -674,14 +678,14 @@ end
 end
 
 function CETrainer_SpammerButtonMouseDown(sender, button, x, y)
---Bevel Width Changing0
+-- Bevel Width Changing0
 xx.AboutButton.BevelWidth = 1
 xx.CheatsButton.BevelWidth = 1
 xx.VisualsButton.BevelWidth = 1
 xx.ChangersButton.BevelWidth = 1
 xx.SpammerButton.BevelWidth = 2
 xx.SettingsButton.BevelWidth = 1
---Bevel Width Changing
+-- Bevel Width Changing
 xx.PosYTimer.Enabled = false
 xx.PosXTimer.Enabled = false
 xx.CurrentPlayers.Enabled = false
@@ -701,21 +705,21 @@ end
 end
 
 function CETrainer_SettingsButtonMouseDown(sender, button, x, y)
---ReadHosts
+-- ReadHosts
 local ReadHostUpdate = assert(io.open("C:\\Windows\\System32\\drivers\\etc\\hosts", "r"))
 UpdateHosts = ReadHostUpdate:read("*all")
 xx.HostsViewText.lines.add(UpdateHosts)
 ReadHostUpdate:close()
---ReadHosts
+-- ReadHosts
 
---Bevel Width Changing0
+-- Bevel Width Changing0
 xx.AboutButton.BevelWidth = 1
 xx.CheatsButton.BevelWidth = 1
 xx.VisualsButton.BevelWidth = 1
 xx.ChangersButton.BevelWidth = 1
 xx.SpammerButton.BevelWidth = 1
 xx.SettingsButton.BevelWidth = 2
---Bevel Width Changing
+-- Bevel Width Changing
 xx.PosYTimer.Enabled = true
 xx.PosXTimer.Enabled = true
 xx.CurrentPlayers.Enabled = true
@@ -735,12 +739,12 @@ end
 end
 
 function CETrainer_Page1ButtonMouseDown(sender, button, x, y)
---Bevel Width Changing
+-- Bevel Width Changing
 xx.Page1Button.BevelWidth = 2
 xx.Page2Button.BevelWidth = 1
 xx.Page3Button.BevelWidth = 1
 xx.Page4Button.BevelWidth = 1
---Bevel Width Changing
+-- Bevel Width Changing
 xx.CheatPage1.Visible = true
 Page1All[1].visible = true
 for i = 1,#Page1All do
@@ -749,12 +753,12 @@ end
 end
 
 function CETrainer_Page2ButtonMouseDown(sender, button, x, y)
---Bevel Width Changing
+-- Bevel Width Changing
 xx.Page1Button.BevelWidth = 1
 xx.Page2Button.BevelWidth = 2
 xx.Page3Button.BevelWidth = 1
 xx.Page4Button.BevelWidth = 1
---Bevel Width Changing
+-- Bevel Width Changing
 xx.CheatPage2.Visible = true
 Page2All[1].visible = true
 for i = 1,#Page2All do
@@ -763,12 +767,12 @@ end
 end
 
 function CETrainer_Page3ButtonMouseDown(sender, button, x, y)
---Bevel Width Changing
+-- Bevel Width Changing
 xx.Page1Button.BevelWidth = 1
 xx.Page2Button.BevelWidth = 1
 xx.Page3Button.BevelWidth = 2
 xx.Page4Button.BevelWidth = 1
---Bevel Width Changing
+-- Bevel Width Changing
 xx.CheatPage3.Visible = true
 Page3All[1].visible = true
 for i = 1,#Page3All do
@@ -777,12 +781,12 @@ end
 end
 
 function CETrainer_Page4ButtonMouseDown(sender, button, x, y)
---Bevel Width Changing
+-- Bevel Width Changing
 xx.Page1Button.BevelWidth = 1
 xx.Page2Button.BevelWidth = 1
 xx.Page3Button.BevelWidth = 1
 xx.Page4Button.BevelWidth = 2
---Bevel Width Changing
+-- Bevel Width Changing
 xx.CheatPage4.Visible = true
 Page4All[1].visible = true
 for i = 1,#Page4All do
@@ -790,11 +794,11 @@ Page4All[i].visible = false
 end
 end
 
---Pages 2
+-- Pages 2
 -----------------------------------------------------------------
 
 -----------------------------------------------------------------
---Changers
+-- Changers
 function CETrainer_HatPanelMouseDown(sender, button, x, y)
 Hat = "[[[Growtopia.exe+7667F8]+AB0]+198]+2b4"
 Changer = CETrainer.HatChanger.Text
@@ -982,11 +986,11 @@ function CETrainer_Reset2MouseLeave(sender)
   sender = sender.Reset2
   sender.Color = "$000000"
 end
---Changers
+-- Changers
 -----------------------------------------------------------------
 
 -----------------------------------------------------------------
---Settings
+-- Settings
 function CETrainer_CEPanel1MouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
@@ -1239,11 +1243,11 @@ function CETrainer_CloseGrowtopiaMouseLeave(sender)
   sender = sender.CloseGrowtopia
   sender.Color = "$000000"
 end
---Settings
+-- Settings
 -----------------------------------------------------------------
 
 -----------------------------------------------------------------
---Spammer
+-- Spammer
 function CETrainer_StartSpammerMouseDown(sender, button, x, y)
 xx.SpammerTimer.Enabled = true
 end
@@ -1382,11 +1386,11 @@ sender.showhint = false
 xx.SpammerTimer.Interval = "999999999"
 end
 end
---Spammer
+-- Spammer
 -------------------------------------------------------------
 
 -------------------------------------------------------------
---Cheats
+-- Cheats
 function CETrainer_ItemTPMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
@@ -3313,11 +3317,11 @@ xx.SpikeFreeze.Enabled = false
 writeInteger(Res, 0)
 end
 end
---Cheats
+-- Cheats
 -------------------------------------------------------------
 
 -------------------------------------------------------------
---Confirmation Form
+-- Confirmation Form
 local conf = Confirmation
 
 conf.Position = poDesktopCenter
@@ -3469,9 +3473,11 @@ end
 function Confirmation_CELabel1MouseDown(sender, button, x, y)
 conf.DragNow()
 end
+-- Confirmation Form
+-------------------------------------------------------------
 
 ------------------------------------------------------------
---Visuals
+-- Visuals
 function CETrainer_TimeMachineMouseDown(sender, button, x, y)
 if sender.showhint == false then
 sender.showhint = true
@@ -3781,11 +3787,11 @@ db 85 FF
 ]]
 end
 end
---Visuals
+-- Visuals
 ------------------------------------------------------------
 
 ------------------------------------------------------------
---Login
+-- Login
 Login.Position = poDesktopCenter
 Login.AlphaBlend = true
 Login.AlphaBlendValue = 0
@@ -3918,5 +3924,5 @@ Login.Green5.BevelColor = "0x"..b1..g1..r1
 Login.Green6.BevelColor = "0x"..b1..g1..r1
 Login.FormDrag.BevelColor = "0x"..b1..g1..r1
 end
--------------------------------------------------------------
---Login
+------------------------------------------------------------
+-- Login
