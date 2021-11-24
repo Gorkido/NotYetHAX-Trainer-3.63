@@ -1,4 +1,5 @@
 <div align="center">
+  
 ## Some Info 
 
 First of all the trainer was not an Virus or anything.. And I was going to quit Growtopia, then let people know about it. Then make the trainer open source. But couple of days later discord banned my account and made it easier to tell people that i quit Growtopia. After that i decided to make the trainer an open source project!
