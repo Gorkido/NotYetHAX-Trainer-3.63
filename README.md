@@ -1,3 +1,4 @@
+<div align="center">
 # Some Info #
 
 First of all the trainer was not an Virus or anything.. And I was going to quit Growtopia, then let people know about it. Then make the trainer open source. But couple of days later discord banned my account and made it easier to tell people that i quit Growtopia. After that i decided to make the trainer an open source project!
@@ -26,3 +27,5 @@ Because making an Growtopia trainer, and finding cheats was my life (kinda) so i
 ![Changers](https://user-images.githubusercontent.com/81165187/122813207-5921f300-d2db-11eb-80e1-6e42c5129a42.png)
 ![Spammer](https://user-images.githubusercontent.com/81165187/122813238-6212c480-d2db-11eb-8179-cff1a68ef8ba.png)
 ![Settings](https://user-images.githubusercontent.com/81165187/122813244-6343f180-d2db-11eb-925a-5c155eeb9b9f.png)
+  
+</div>
