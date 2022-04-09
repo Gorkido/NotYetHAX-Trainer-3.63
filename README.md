@@ -8,7 +8,7 @@ And of course :) Have Fun!!
 
 ## Information About The Trainer
 
-The trainer is a .EXE file (executable) because I put the trainer and its files in my Visual Studio project (in the resources folder), which means: EXE is the loader. it is extracting the required files in "%temp%/NotYetHAX/". EXE starts the trainer in "%temp%/NotYetHAX/NotYetHAX`s_Trainer.EXE". I know you are wondering why is this an EXE? Because I made a EXE trainer with Cheat Engine (With "Exe Trainer Generator")
+The trainer is a .EXE file (executable) because I put the trainer and its files in my Visual Studio project (in the resources folder), which means: EXE is the loader. it is extracting the required files in `"%temp%/NotYetHAX/"`. EXE starts the trainer in `"%temp%/NotYetHAX/NotYetHAX`s_Trainer.EXE"`. I know you are wondering why is this an EXE? Because I made a EXE trainer with Cheat Engine (With "`Exe Trainer Generator`")
 ## Why .EXE? why not .CETRAINER?
 
 Because some people don't know how to install cheat engine and start the trainer with it.. So .EXE is better for those people :)
