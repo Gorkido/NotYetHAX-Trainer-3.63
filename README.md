@@ -1,6 +1,6 @@
 <div align="center">
   
-## Infortmation
+## Information
 
 First of all, the cheats I made weren't viruses. And I wanted to quit Growtopia and let people know about it. I  already wanted to make the cheat open source. But a few days later, Discord suspended my account and made it easier to tell people that I was leaving Growtopia. After that, I decided to make the trainer an open source project.
 
