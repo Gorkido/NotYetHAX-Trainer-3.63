@@ -1,21 +1,21 @@
 <div align="center">
   
-## Some Info 
+## Infortmation
 
-First of all the trainer was not an Virus or anything.. And I was going to quit Growtopia, then let people know about it. Then make the trainer open source. But couple of days later discord banned my account and made it easier to tell people that i quit Growtopia. After that i decided to make the trainer an open source project!
+First of all, the cheats I made weren't viruses. And I wanted to quit Growtopia and let people know about it. I  already wanted to make the cheat open source. But a few days later, Discord suspended my account and made it easier to tell people that I was leaving Growtopia. After that, I decided to make the trainer an open source project.
 
 And of course :) Have Fun!!
 
 ## Information About The Trainer
 
-The trainer was an .EXE file (executable) because i put the trainer and its files inside my Visual Studio project (inside the resource directory) meaning: EXE was the loader. it was extracting needed files inside "%temp%/NotYetHAX/". EXE was starting the trainer inside "%temp%/NotYetHAX/NotYetHAX's_Trainer.EXE". i know you are wondering why is it an EXE? Because i made the trainer EXE with Cheat Engine (With the "Exe Trainer Generator")
+The trainer is a .EXE file (executable) because I put the trainer and its files in my Visual Studio project (in the resources folder), which means: EXE is the loader. it is extracting the required files in "%temp%/NotYetHAX/". EXE starts the trainer in "%temp%/NotYetHAX/NotYetHAX`s_Trainer.EXE". I know you are wondering why is this an EXE? Because I made a EXE trainer with Cheat Engine (With "Exe Trainer Generator")
 ## Why .EXE? why not .CETRAINER?
 
-Because some people didn't know how to install cheat engine and start the trainer with it.. So .EXE was better for those people :)
+Because some people don't know how to install cheat engine and start the trainer with it.. So .EXE is better for those people :)
 
-## Why didn't i make the trainer an open source project before?
+## Why didn't I turn the trainer into an open source project before?
 
-Because making an Growtopia trainer, and finding cheats was my life (kinda) so i thought my cheats were so epic and overpowered. (until now xd)
+Because making a Growtopia trainer and looking for cheats was my life (kinda), I thought my cheats were epic and overpowered.
 
 ## Trainer's Preview
 ![Login](https://user-images.githubusercontent.com/81165187/122813188-52937b80-d2db-11eb-8f5b-782915a77143.png)
