@@ -3804,7 +3804,7 @@ end
 end)
 
 function Login_LoginBtnMouseDown(sender, button, x, y)
-local str = getint.getURL("https://textuploader.com/tsbh0/raw") --password = OpenSource
+local str = "OpenSource"
 local TextLogin = Login.Key.text
 if str == TextLogin then
 getint.destroy()
